@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import '../../styles/Expenses.css';
 import Card from '../UI/Card';
 import ExpensesFilter from './ExpensesFilter';
@@ -12,12 +12,12 @@ export default function Expenses(props) {
   const filteredExpenses = props.items.filter(item => filteredYear === item.date.getFullYear().toString())
 
   return (
-    <div>
+    <React.Fragment>
       <Card className='expenses'>
         <ExpensesFilter selected={filteredYear} onYearSelected={yearChangeHandler} />
         <ExpensesChart expenses={filteredExpenses} />
         <ExpensesList expenses={filteredExpenses} />
       </Card>
-    </div>
+    </React.Fragment>
   )
 }
